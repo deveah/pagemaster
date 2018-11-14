@@ -40,7 +40,7 @@ class Pagemaster < Jekyll::Command
              when '.csv'
                CSV.read(src, headers: true).map(&:to_hash)
              when '.json'
-               JSON.parse(File.read(src).encode('UTF-8'))
+               JSON.parse(File.read(src).force_encoding('UTF-8'))
              when '.yml'
                YAML.load_file(src)
              else
